@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'mm4g6@oe8$4^!2ihwst%5pq-(j+kavh4r7$-5mk!$(@-4-^$^4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["10.0.0.242"]
 
 
 # Application definition
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'HealthGo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'HealthGo/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
