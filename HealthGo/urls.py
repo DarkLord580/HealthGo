@@ -19,5 +19,8 @@ from . import views
 
 urlpatterns = [
     path("", views.index),
+    path("", views.index, name="index"),
+    path("login", views.login_view, name="login"),
+    path("rewards", views.rewards, name="rewards"),
     path('admin/', admin.site.urls),
 ]

@@ -19,12 +19,38 @@ import pytz
 
 
 def index(request):
-        querydata = User.objects.all() 
+    querydata = User.objects.all() 
 
-        Users = {
-            'Users': querydata
+    Users = {
+        'Users': querydata
+    }
+    return render(request, "index.html", Users)
+
+
+def rewards(request):
+        samples = {
+            'samples': 'test'
         }
 
+        return render(request, "rewards.html", samples)
 
-        return render(request, "index.html", Users)
+def login_view(request):
+    if request.method == "POST":
+
+        # Attempt to sign user in
+        username = request.POST["userid"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+
+        # Check if authentication successful
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse("index"))
+        else:
+            return render(request, "login.html", {
+                "message": "Invalid username and/or password."
+            })
+    else:
+        return render(request, "login.html")
+
         

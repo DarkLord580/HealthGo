@@ -1,19 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-  </head>
-  <body>
+{% extends "layout.html" %}
 
-    {% for User in Users%}
-    <div id="title" class="side front">{{User.UID}}</div> 
-    <div id="define" class="side back">{{User.UserID}}</div>
-    <div id="define" class="side back">{{User.Username}}</div>
-    <div id="define" class="side back">{{User.Password}}</div>
-    <div id="define" class="side back">{{User.Points}}</div>
+{% block body %}
 
-    {% endfor %}
-    test page2
-</body>
-</html>
+   {% for User in Users%}
+   <div id="title" class="side front">{{User.UID}}</div> 
+   <div id="define" class="side back">{{User.UserID}}</div>
+   <div id="define" class="side back">{{User.Username}}</div>
+   <div id="define" class="side back">{{User.Password}}</div>
+   <div id="define" class="side back">{{User.Points}}</div>
+   {% endfor %}
+
+   
+ <div class="row">
+  <div class="col-sm-6">Maps are here</div>
+
+
+  <div class="col-sm-4"></div>
+	
+</div>
+{% endblock %}
