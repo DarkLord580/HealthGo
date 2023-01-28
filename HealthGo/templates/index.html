@@ -6,7 +6,11 @@
   </head>
   <body>
 
+    {% for sample in samples%}
+    <div id="title" class="side front">{{sample.fid}}</div> 
+    <div id="define" class="side back">{{sample.name}}</div>
 
-    test page
+    {% endfor %}
+    test page2
 </body>
 </html>

@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.urls import reverse
 
 from .models import *
+
 from django.http import JsonResponse
 from django.template import Context, loader
 from django.views.decorators.csrf import csrf_exempt
@@ -18,8 +19,12 @@ import pytz
 
 
 def index(request):
-        context = {
-            "first_name" : "Raghav",
+        querydata = Sample.objects.all() 
+
+        samples = {
+            'samples': querydata
         }
-        return render(request, "index.html", context)
+
+
+        return render(request, "index.html", samples)
         
