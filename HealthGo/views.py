@@ -19,12 +19,12 @@ import pytz
 
 
 def index(request):
-        querydata = Sample.objects.all() 
+        querydata = User.objects.all() 
 
-        samples = {
-            'samples': querydata
+        Users = {
+            'Users': querydata
         }
 
 
-        return render(request, "index.html", samples)
+        return render(request, "index.html", Users)
         

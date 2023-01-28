@@ -6,9 +6,12 @@
   </head>
   <body>
 
-    {% for sample in samples%}
-    <div id="title" class="side front">{{sample.fid}}</div> 
-    <div id="define" class="side back">{{sample.name}}</div>
+    {% for User in Users%}
+    <div id="title" class="side front">{{User.UID}}</div> 
+    <div id="define" class="side back">{{User.UserID}}</div>
+    <div id="define" class="side back">{{User.Username}}</div>
+    <div id="define" class="side back">{{User.Password}}</div>
+    <div id="define" class="side back">{{User.Points}}</div>
 
     {% endfor %}
     test page2

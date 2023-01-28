@@ -3,6 +3,13 @@ from django.db import models
 
 
 
+class User(models.Model):
+    UID = models.AutoField(primary_key=True)
+    UserID = models.CharField(max_length=128)
+    Username = models.CharField(max_length=128)
+    Password = models.CharField(max_length=128)
+    points = models.IntegerField(default=0)
+
 class Sample(models.Model):
     fid =  models.IntegerField()
     name = models.TextField(default="")
