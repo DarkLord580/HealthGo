@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% block body %}
+{% block body %}  
 
    {% for User in Users%}
    <div id="title" class="side front">{{User.UID}}</div> 
@@ -11,9 +11,10 @@
    {% endfor %}
 
    
- <div class="row">
+<div class="row">
+<div id="map"></div>
   <div class="col-sm-6">Maps are here</div>
-
+ 
 
   <div class="col-sm-4"></div>
 	
