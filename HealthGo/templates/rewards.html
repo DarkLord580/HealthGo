@@ -1,10 +1,17 @@
 {% extends "layout.html" %}
 
 {% block body %}
- <div class="row">
-	{% for user in winners%}
-  	<div id="define" class="col-sm-3">{{user.username}}</div>
-   <div id="define" class="col-sm-9">{{user.points}}</div>
-   {% endfor %}
+<div class="container">
+	<div class="row">
+		<div class="col">HealthGo user</div>
+		<div class="col">Rewards</div>
 	</div>
+	{% for user in winners%}
+	<div class="row">
+		<div class="col">{{user.username}}</div>
+		<div class="col">{{user.points}}</div>
+	</div>
+	{% endfor %}
+</div>
+	
 {% endblock %}
