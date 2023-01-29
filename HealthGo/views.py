@@ -19,12 +19,17 @@ import pytz
 
 
 def index(request):
-    querydata = User.objects.all() 
 
-    Users = {
-        'Users': querydata
-    }
-    return render(request, "index.html", Users)
+    if "uid" in request.session:
+        uid = request.session['uid']
+        user = User.objects.get(id=uid)
+        
+        if user is not None:
+            loginuser = {
+                'loginuser': user
+            }
+            return render(request, "index.html", loginuser)
+    return render(request, "index.html")
 
 
 def rewards(request):
@@ -38,19 +43,30 @@ def login_view(request):
     if request.method == "POST":
 
         # Attempt to sign user in
-        username = request.POST["userid"]
+        username = request.POST["username"]
         password = request.POST["password"]
-        user = authenticate(request, username=username, password=password)
 
-        # Check if authentication successful
-        if user is not None:
-            login(request, user)
-            return HttpResponseRedirect(reverse("index"))
+        print("######################")
+        print("user", username)
+        print("######################")
+
+        loginuser = User.objects.filter(username=username)
+        
+        print("login user", loginuser)
+        
+        if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].password:
+                request.session['uid'] = loginuser[0].id
+                login(request, loginuser[0])
+                return HttpResponseRedirect(reverse("index"))
         else:
             return render(request, "login.html", {
                 "message": "Invalid username and/or password."
             })
     else:
         return render(request, "login.html")
+
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse("index"))
 
         
