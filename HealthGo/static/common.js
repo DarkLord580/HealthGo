@@ -43,7 +43,7 @@ function initMap() {
         data[x].question+
         "</p>" +
         "<input type=\"text\" id=\"\">" + 
-        "<button class= \"button4\" onclick=>Click Me</button>" +
+        "<button class= \"button4\" onclick=\"savewp("+ data[x].id + ")\">Click Me</button>" +
         "</div>" +
         "</div>";
           console.log(data[x].latitude)
