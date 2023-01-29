@@ -1,5 +1,5 @@
 
-from django.contrib.auth import  login, logout
+from django.contrib.auth import  login,logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -20,9 +20,9 @@ import pytz
 
 def index(request):
 
-    if "uid" in request.session:
-        uid = request.session['uid']
-        user = User.objects.get(id=uid)
+    if "un" in request.session:
+        username = request.session['un']
+        user = User.objects.get(username=username)
         
         if user is not None:
             loginuser = {
@@ -33,9 +33,9 @@ def index(request):
 
 
 def rewards(request):
-    if "uid" in request.session:
-        uid = request.session['uid']
-        user = User.objects.get(id=uid)
+    if "un" in request.session:
+        username = request.session['un']
+        user = User.objects.get(username=username)
         if user is not None:
             winners = User.objects.all()
             
@@ -54,12 +54,12 @@ def login_view(request):
         username = request.POST["username"]
         password = request.POST["password"]
 
-        loginuser = User.objects.filter(Username=username)
+        loginuser = User.objects.filter(username__iexact=username)
         print ("loginuser=", loginuser )
         
-        if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].Password:
-                print ("=====UID===", loginuser[0].UserID )
-                request.session['uid'] = loginuser[0].UserID
+        if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].password:
+                print ("=====UID===", loginuser[0])
+                request.session['un'] = loginuser[0].username
                 login(request, loginuser[0])
                 return HttpResponseRedirect(reverse("index"))
         else:
@@ -72,5 +72,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
+
+
 
         
