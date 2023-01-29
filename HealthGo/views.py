@@ -58,7 +58,7 @@ def login_view(request):
         loginuser = User.objects.filter(username__iexact=username)
         #print ("loginuser=", loginuser )
         
-        if loginuser != None and len(loginuser) != 0  and password == loginuser[0].password:
+        if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].password:
                 request.session['un'] = loginuser[0].username
                 
                 login(request, loginuser[0])
@@ -76,14 +76,13 @@ def logout_view(request):
 
 @csrf_exempt
 def savewp(request):
-    print("saving")
     if request.method == "POST":
         
         username = request.session['un']
         loginuser = User.objects.filter(username__iexact=username)
         
         if loginuser is not None:
-            print("ha! it's going to get saved")
+
             status = 400
             data = json.loads(request.body)
             id = data.get('wpid')
@@ -96,7 +95,7 @@ def savewp(request):
             success = data.get('success')
 
             historyset = UserHistory.objects.filter(uid=loginid,wpid=wpid)
-            print("HMMMMMMMMMM", len(historyset) > 0)
+            
             if len(historyset) > 0:
                 status =200
                 if data.get('success') == False:
@@ -108,7 +107,7 @@ def savewp(request):
                 else:
                      text = "Already got a point"
             else: 
-                print("almoosotttt tsavvveeeedd")
+                
                 history = UserHistory()
                 history.uid = loginuser[0].id
                 history.wpid = data.get('wpid')
@@ -119,14 +118,12 @@ def savewp(request):
                     text = "Success!! You got a point"
                 history.time = datetime.now() 
                 history.save()
-                print("________________saved!")
                 status = 200
                 
         context = {
             'status': status,
             'text' : text
         }
-        print(context)
         return JsonResponse(context, status=status)
     else :
         '''For testing '''

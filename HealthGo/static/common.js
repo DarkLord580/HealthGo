@@ -28,7 +28,6 @@ function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
       center: myLatlng,
       zoom: 20,
-      disableDefaultUI: true,
     });
     readTextFile("./static/geo.json", function(text){
       var data = JSON.parse(text);
