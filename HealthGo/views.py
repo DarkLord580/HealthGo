@@ -46,13 +46,7 @@ def login_view(request):
         username = request.POST["username"]
         password = request.POST["password"]
 
-        print("######################")
-        print("user", username)
-        print("######################")
-
         loginuser = User.objects.filter(username=username)
-        
-        print("login user", loginuser)
         
         if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].password:
                 request.session['uid'] = loginuser[0].id
