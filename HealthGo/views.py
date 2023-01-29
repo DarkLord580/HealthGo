@@ -33,11 +33,16 @@ def index(request):
 
 
 def rewards(request):
-        samples = {
-            'samples': 'test'
-        }
+        uid = request.session['uid']
+        user = User.objects.get(id=uid)
 
-        return render(request, "rewards.html", samples)
+        if user is not None:
+            loginuser = {
+                'loginuser': user
+            }
+            return render(request, "rewards.html", loginuser)
+        
+        render(request, "login.html")
 
 def login_view(request):
     if request.method == "POST":
