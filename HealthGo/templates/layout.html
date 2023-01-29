@@ -16,26 +16,26 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="{% static 'common.js' %}"></script>
     </head>
-    <body style = "background-color: #5e68b0;">
+    <body style = "background-color:#b1cdff;">
 
-        <nav style = "background-color: #b1cdff;" class="navbar navbar-expand-lg navbar-light">
+        <nav style = "background-color:  #5e68b0;" class="navbar navbar-expand-lg navbar-light">
         
-            <a class="navbar-brand" href="{% url 'index' %}">HealthGo</a>
+            <a style = "color: rgb(254, 249, 104)"class="navbar-brand" href="{% url 'index' %}">HealthGo</a>
           
             <div>
               <ul class="navbar-nav mr-auto">
                 
                 {% if loginuser %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'rewards' %}">Rewards</a>
+                    <a style = "color: rgb(254, 249, 104)" class="nav-link" href="{% url 'rewards' %}">Rewards</a>
                   </li>
                   <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                <a  style = "color: rgb(254, 249, 104)" class="nav-link" href="{% url 'logout' %}">Log out</a>
                 </li>
                 
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        <a style = "color: rgb(254, 249, 104)" class="nav-link" href="{% url 'login' %}">Log In</a>
                     </li>
                     
                 {% endif %}
