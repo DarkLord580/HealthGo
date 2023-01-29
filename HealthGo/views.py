@@ -38,6 +38,7 @@ def rewards(request):
 
         if user is not None:
             winners = User.objects.all()
+            
             loginuser = {
                 'loginuser': user ,
                 'winners' :winners
