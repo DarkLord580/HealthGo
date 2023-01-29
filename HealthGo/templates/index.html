@@ -5,11 +5,6 @@
    
 <div class="row">
 <div id="map"></div>
-  <div class="col-sm-6">Maps are here</div>
- 
-
-  <div class="col-sm-4"></div>
-	
 </div>
 {% endblock %}
 
@@ -17,11 +12,12 @@
 <script>
 
 function savewp(id) {
-  var answer = $("#answer_" + id).val()
-  var user_answer = $("#txt_" + id).val();
+  var answer = $("#answer_" + id).val().toLowerCase()
+  var user_answer = $("#text_" + id).val().toLowerCase();
   var is_correct = false;
   if(user_answer == answer){
     is_correct = true;
+
   }
   var post_data = {
 			wpid : id,
@@ -33,12 +29,12 @@ function savewp(id) {
 		url: "/savewp",
 		dataType: "json",
 		success: function (msg) {
-      console.log(msg)
-			if (msg) {
+      		if (msg) {
 				if (msg.status == 200){ 
 				$("#content_" + id).find("#firstHeading").text(msg.text)
+				
 				} else {
-					console.log("failfailfailfailfail")
+					//console.log("failfailfailfailfail")
 				}	
         //	
 				//$("#content_" + id).hide();

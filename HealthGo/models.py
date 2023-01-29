@@ -12,6 +12,7 @@ class UserHistory(models.Model):
     wpid = models.IntegerField()
     Sucess = models.BooleanField()
     time = models.DateTimeField()
+   
 
 class Sample(models.Model):
     fid =  models.IntegerField()

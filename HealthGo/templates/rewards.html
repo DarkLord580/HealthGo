@@ -1,17 +1,37 @@
+
 {% extends "layout.html" %}
+{% load static %}
 
 {% block body %}
-<div class="container">
-	<div class="row">
-		<div class="col">HealthGo user</div>
-		<div class="col">Rewards</div>
+
+<div class="card text-center" style="width: 18rem;">
+	<div class="card-body">
+	<img src="{% static 'rewards.png' %}" style="background-size:150px;width:50px; height:50px">
+	<h5 class="card-title">{{loginuser.username}} Rewards</h5>
+	<h6 class="card-subtitle mb-2 text-muted">{{loginuser.points}}</h6>
 	</div>
-	{% for user in winners%}
-	<div class="row">
-		<div class="col">{{user.username}}</div>
-		<div class="col">{{user.points}}</div>
-	</div>
-	{% endfor %}
-</div>
-	
+  </div>
+
+
+<table class="table table-striped table-sm" style="width: 300;height: 400;background: ">
+	<thead>
+	  <tr>
+		<th scope="col">#</th>
+		<th scope="col">User</th>
+		<th scope="col">Rewards</th>
+	  </tr>
+	</thead>
+	<tbody>
+		{% for user in winners%}
+		<tr>
+		  <th scope="row">{{ forloop.counter }}</th>
+		  <td>{{user.username}}</td>
+		  <td>{{user.points}}</td>
+		  </tr>
+		  {% endfor %}
+	  </tbody>
+</table>
+
+
+
 {% endblock %}
