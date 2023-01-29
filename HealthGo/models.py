@@ -4,7 +4,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    pass
+    points = models.PositiveIntegerField(("points"))
 
 class Sample(models.Model):
     fid =  models.IntegerField()

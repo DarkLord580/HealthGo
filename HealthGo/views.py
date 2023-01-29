@@ -37,11 +37,16 @@ def rewards(request):
         user = User.objects.get(id=uid)
 
         if user is not None:
+            winners = User.objects.all()
             loginuser = {
-                'loginuser': user
+                'loginuser': user ,
+                'winners' :winners
             }
+            
             return render(request, "rewards.html", loginuser)
         
+       
+
         render(request, "login.html")
 
 def login_view(request):
@@ -53,7 +58,7 @@ def login_view(request):
 
         loginuser = User.objects.filter(username=username)
         
-        if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].password:
+        if loginuser is not None and len(loginuser) != 0  and password == loginuser[0].password:
                 request.session['uid'] = loginuser[0].id
                 login(request, loginuser[0])
                 return HttpResponseRedirect(reverse("index"))

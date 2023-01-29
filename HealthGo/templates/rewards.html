@@ -2,7 +2,10 @@
 
 {% block body %}
  <div class="row">
-	<div class="col-sm-2">Rewards </div>
-    information for rewards
-	</div>
+	{% for user in winners%}
+   		<div id="define" class="col-sm-4">{{user.username}}</div>
+   		<div id="define" class="col-sm-8">{{user.points|floatformat:"decimalsg"}}</div>
+   {% endfor %}
+	
+</div>
 {% endblock %}
