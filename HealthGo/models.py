@@ -7,6 +7,12 @@ class User(AbstractUser):
     pass
     points = models.PositiveIntegerField(("points"))
     
+class UserHistory(models.Model):
+    uid = models.IntegerField()
+    wpid = models.IntegerField()
+    Sucess = models.BooleanField()
+    time = models.DateTimeField()
+   
 
 class Sample(models.Model):
     fid =  models.IntegerField()

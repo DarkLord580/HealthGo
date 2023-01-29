@@ -1,20 +1,36 @@
 {% extends "layout.html" %}
+{% load static %}
 
 {% block body %}
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-	<title>Rewards</title>
-	<link rel="stylesheet" href="reward.css">
-</head>
-<body>
- <score>
-	{% for user in winners%}
 
-  	<div id="define" class="col-sm-3">{{user.username}}</div>
-   <div id="define" class="col-sm-9">{{user.points}}</div>
-   {% endfor %}
-	</score>
-	</body>
-</html>
+<div class="card text-center" style="width: 18rem;">
+    <div class="card-body">
+    <img src="{% static 'rewards.png' %}" style="background-size:150px;width:50px; height:50px">
+    <h5 class="card-title">{{loginuser.username}} Rewards</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{loginuser.points}}</h6>
+    </div>
+  </div>
+
+
+<table class="table table-striped table-sm" style="width: 300;height: 400;background: ">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Rewards</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for user in winners%}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{user.username}}</td>
+          <td>{{user.points}}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+</table>
+
+
+
 {% endblock %}

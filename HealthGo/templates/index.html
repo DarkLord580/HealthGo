@@ -2,22 +2,9 @@
 
 {% block body %}  
 
-   {% for User in Users%}
-   <div id="title" class="side front">{{User.UID}}</div> 
-   <div id="define" class="side back">{{User.UserID}}</div>
-   <div id="define" class="side back">{{User.Username}}</div>
-   <div id="define" class="side back">{{User.Password}}</div>
-   <div id="define" class="side back">{{User.Points}}</div>
-   {% endfor %}
-
    
 <div class="row">
 <div id="map"></div>
-  <div class="col-sm-6">Maps are here</div>
- 
-
-  <div class="col-sm-4"></div>
-	
 </div>
 {% endblock %}
 
@@ -25,8 +12,16 @@
 <script>
 
 function savewp(id) {
+  var answer = $("#answer_" + id).val().toLowerCase()
+  var user_answer = $("#text_" + id).val().toLowerCase();
+  var is_correct = false;
+  if(user_answer == answer){
+    is_correct = true;
+
+  }
   var post_data = {
-			wp_id : id
+			wpid : id,
+      success : is_correct,
 	    };
 	
 	$.ajax({
@@ -34,20 +29,20 @@ function savewp(id) {
 		url: "/savewp",
 		dataType: "json",
 		success: function (msg) {
-			if (msg) {
-				if (msg.saved == true){ 
-					//alert msg  for saved data
-					
+      		if (msg) {
+				if (msg.status == 200){ 
+				$("#content_" + id).find("#firstHeading").text(msg.text)
+				
 				} else {
-					// fail
+					//console.log("failfailfailfailfail")
 				}	
         //	
-				$("#spn-wp-" + id).text(msg.count);
+				//$("#content_" + id).hide();
 			}
 		},
 		data: JSON.stringify(post_data)
 	});
 	
-}
-</script>
+}</script>
+
 {% endblock %}
