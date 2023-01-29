@@ -20,3 +20,34 @@
 	
 </div>
 {% endblock %}
+
+{% block javascript %}
+<script>
+
+function savewp(id) {
+  var post_data = {
+			wp_id : id
+	    };
+	
+	$.ajax({
+		type: "POST",
+		url: "/savewp",
+		dataType: "json",
+		success: function (msg) {
+			if (msg) {
+				if (msg.saved == true){ 
+					//alert msg  for saved data
+					
+				} else {
+					// fail
+				}	
+        //	
+				$("#spn-wp-" + id).text(msg.count);
+			}
+		},
+		data: JSON.stringify(post_data)
+	});
+	
+}
+</script>
+{% endblock %}
