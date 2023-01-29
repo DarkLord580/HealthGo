@@ -1,5 +1,5 @@
 
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import  login, logout
 from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
