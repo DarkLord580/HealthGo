@@ -10,6 +10,8 @@
       src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly"
       defer
     ></script>
+    {% block javascript %}
+    {% endblock %}
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="{% static 'common.js' %}"></script>
@@ -45,6 +47,5 @@
             {% endblock %}
         </div>
     </body>
-	{% block javascript %}
-    {% endblock %}
+	
 </html>

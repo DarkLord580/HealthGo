@@ -4,7 +4,7 @@ from django.db import IntegrityError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
-
+from django.views.decorators.csrf import csrf_exempt
 
 from HealthGo.models import User,UserHistory
 
@@ -74,8 +74,10 @@ def logout_view(request):
     logout(request)
     return HttpResponseRedirect(reverse("index"))
 
+@csrf_exempt
 def savewp(request):
     if request.method == "POST":
+        print("________here!")
         username = request.session['un']
         loginuser = User.objects.filter(username__iexact=username)
         if loginuser is not None:
@@ -94,8 +96,8 @@ def savewp(request):
             '''
 
             context = {
-            'status': 400,
-            'saved': False,
+            'status': 200,
+            'text' : "Success\nYou got a point"
             }
 
             return JsonResponse(context, status=201)

@@ -35,6 +35,7 @@ function initMap() {
       for(x in data){
         const contentString =
         '<div id="content">' +
+        '<div id="content_' + data[x].id+  '">' +
         '<div id="siteNotice">' +
         "</div>" +
         '<h1 style = "padding:20px;"id="firstHeading" class="firstHeading">Problem/Fun fact!</h1>' +
@@ -42,8 +43,10 @@ function initMap() {
         "<p> " +
         data[x].question+
         "</p>" +
-        "<input type=\"text\" id=\"\">" + 
+        "<input type=\"text\" id=\"text_"+ data[x].id  +"\">" + 
+        "<input type=\"hidden\" id=\"answer_"+ data[x].id  +"\" value = \""+ data[x].answer +"\">" + 
         "<button class= \"button4\" onclick=\"savewp("+ data[x].id + ")\">Click Me</button>" +
+        "</div>" +
         "</div>" +
         "</div>";
           console.log(data[x].latitude)
