@@ -33,9 +33,9 @@ def index(request):
 
 
 def rewards(request):
+    if "uid" in request.session:
         uid = request.session['uid']
         user = User.objects.get(id=uid)
-
         if user is not None:
             winners = User.objects.all()
             
@@ -43,12 +43,9 @@ def rewards(request):
                 'loginuser': user ,
                 'winners' :winners
             }
-            
-            return render(request, "rewards.html", loginuser)
         
-       
-
-        render(request, "login.html")
+            return render(request, "rewards.html", loginuser)
+    return render(request, "login.html")
 
 def login_view(request):
     if request.method == "POST":
@@ -57,10 +54,12 @@ def login_view(request):
         username = request.POST["username"]
         password = request.POST["password"]
 
-        loginuser = User.objects.filter(username=username)
+        loginuser = User.objects.filter(Username=username)
+        print ("loginuser=", loginuser )
         
-        if loginuser is not None and len(loginuser) != 0  and password == loginuser[0].password:
-                request.session['uid'] = loginuser[0].id
+        if loginuser is not None and len(loginuser) is not 0  and password == loginuser[0].Password:
+                print ("=====UID===", loginuser[0].UserID )
+                request.session['uid'] = loginuser[0].UserID
                 login(request, loginuser[0])
                 return HttpResponseRedirect(reverse("index"))
         else:
