@@ -1,10 +1,20 @@
 {% extends "layout.html" %}
 
 {% block body %}
- <div class="row">
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<title>Rewards</title>
+	<link rel="stylesheet" href="reward.css">
+</head>
+<body>
+ <score>
 	{% for user in winners%}
+
   	<div id="define" class="col-sm-3">{{user.username}}</div>
    <div id="define" class="col-sm-9">{{user.points}}</div>
    {% endfor %}
-	</div>
+	</score>
+	</body>
+</html>
 {% endblock %}
