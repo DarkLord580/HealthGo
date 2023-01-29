@@ -33,5 +33,157 @@
         "longitude": "-121.912109",
         "question": "Yoga can boost your cognitive function and lower stress",
         "answer": " "
-      }
+      },
+      {
+        "id": 32, 
+        "latitude": 37.2684113,
+        "longitude": -121.9063892,
+        "question": "Yes or No: Laughing is good for the heart and can increase blood flow by 55 percent", 
+        "answer": "Yes"
+        },
+        
+        {
+        "id": 45, 
+        "latitude": 37.2637497,
+        "longitude": -121.9188963,
+        "question": "Running is good for you. People who run 12-18 miles a week have a stronger immune system and can increase their bone mineral density", 
+        "answer": " "
+        },
+        {
+        "id": 5, 
+        "latitude": 37.2453317,
+        "longitude": -121.891118,
+        "question": "Yes or No: Although it only takes you a few minutes to eat a meal, it takes your body hours to completely digest the foodt", 
+        "answer": "Yes"
+        },
+        
+        
+        {
+        "id": 35, 
+        "latitude": 37.2675703,
+        "longitude": -121.9078966,
+        "question": "Yes or No: Chewing gum makes you more alert, relieves stress and reduces anxiety levels", 
+        "answer": "Yes"
+        },
+        
+        
+        {
+        "id": 31, 
+        "latitude": 37.2689769,
+        "longitude": -121.9054525,
+        "question": "Yes or No: The amino acid found in eggs can help improve your reflexes", 
+        "answer": "Yes"
+        },
+        
+        {
+        "id": 8, 
+        "latitude": 37.245524744373284,
+        "longitude": -121.89204296145654,
+        "question": "Scientists have discovered 14 genes that cause obesity and three that prevent weight gain", 
+        "answer": " "
+        },
+        
+        {
+        "id": 16, 
+        "latitude": 37.2549789,
+        "longitude": -121.8982271,
+        "question": "Eating eggshell can help you increase your calcium intake", 
+        "answer": " "
+        },
+        
+        
+        {
+        "id": 18, 
+        "latitude": 37.2537263,
+        "longitude": -121.9022746,
+        "question": "Yes or No: Regular activity can ease the severity and reduce the frequency of lower back pain", 
+        "answer": " "
+        },
+        
+        
+        
+        {
+        "id": 20, 
+        "latitude": 37.2568561,
+        "longitude": -121.8994153,
+        "question": "Practicing good posture can boost your energy levels", 
+        "answer": " "
+        },
+        
+        
+        {
+        "id": 21, 
+        "latitude": 37.2570141,
+        "longitude": -121.9002844,
+        "question": "Yes or No: Dehydration can have a negative impact on your mood and energy levels. Drink enough water to ensure you’re always at your best", 
+        "answer": " "
+        },
+        
+        {
+        "id": 6, 
+        "Latitude":37.2459744,
+        "longitude": -121.8899915,
+        "question": "Yes or No: A lack of exercise now causes as many deaths as smoking.", 
+        "answer": "Yes"
+        },
+        
+        {
+        "id": 10, 
+        "latitude":37.2462315,
+        "longitude": -121.8933841,
+        "question": "Yes or No: Almonds, avocados and apples (the three ‘A’s) can boost your sex drive and improve fertility", 
+        "answer": "No"
+        },
+        
+        {
+        "id": 12, 
+        "latitude":37.2495261,
+        "longitude": -121.8954483,
+        "question": "Yes or No: Sitting and sleeping are great in moderation, but too much can increase your chances of an early death.", 
+        "answer": "Yes"
+        },
+        
+        {
+        "id": 14, 
+        "Latitude":37.2545434,
+        "longitude": -121.8973151,
+        "question": "Yes or No: About 50% of adults in the world are overweight.", 
+        "answer": "No"
+        },
+        
+        {
+        "id": 24, 
+        "latitude":37.2620436,
+        "longitude": -121.9015825,
+        "question": "Yes or No: Between 2000 and 2015, the average global life expectancy increased by five years.",
+        "answer": "Yes"
+        
+        
+        },
+        
+        
+        {
+        "id": 26, 
+        "latitude":37.2638539,
+        "longitude": -121.9019495,
+        "question": "Yes or No: The US spends almost four times more on healthcare than any other country in the world, but ranks last in life expectancy among the 12 wealthiest industrialized countries.", 
+        "answer": "No"
+        },
+        
+        {
+        "id": 28, 
+        "latitude":37.2665222,
+        "longitude": -121.9035535,
+        "question": "Yes or No: Chocolate is good for your skin.", 
+            "answer": "Yes "
+        },
+        
+        {
+        "id": 30, 
+        "latitude": 37.2689769,
+        "longitude": -121.9054525,
+        "question": "Yes or No: Tea can lower risks of heart attack, certain cancers, type 2 Diabetes and Parkinson’s disease.", 
+        "answer": "Yes"
+        }
+        
 ]
