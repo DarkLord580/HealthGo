@@ -26,5 +26,12 @@
       "longitude": "-121.8980596",
       "question": "Yes or No: Exercise will give you more energy even when you’re tired",
       "answer": "Yes"
-    }
+    },
+    {
+        "id": "40",
+        "latitude": "37.2655628",
+        "longitude": "-121.912109,",
+        "question": "Yoga can boost your cognitive function and lower stress",
+        "answer": " "
+      }
 ]
