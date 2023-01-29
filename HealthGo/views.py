@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import *
+from HealthGo.models import User
 
 from django.http import JsonResponse
 from django.template import Context, loader
